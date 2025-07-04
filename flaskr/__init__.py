@@ -4,6 +4,7 @@ from flask import Flask
 from . import auth
 from . import db
 from . import auth
+from . import blog
 
 def create_app(test_config=None):
     # create and configure the app
@@ -11,6 +12,7 @@ def create_app(test_config=None):
 
     db.init_app(app)
     app.register_blueprint(auth.bp)
+    app.register_blueprint(blog.bp)
 
     app.config.from_mapping(
         SECRET_KEY='dev',
